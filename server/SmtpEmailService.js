@@ -1,6 +1,6 @@
-const { prototype } = require("nodemailer/lib/dkim");
 const nodemailer = require("nodemailer");
 const SECRETE_PROPERTIES = require("./secreteProperties");
+const STATUS = require("./serverConstants");
 
  module.exports ={
   sendEmail: function(req){
@@ -39,10 +39,10 @@ const SECRETE_PROPERTIES = require("./secreteProperties");
     smtpTransport.sendMail(mailOptions, (error, response) => {
       console.log(response);
       if (error) {
-        responseStatus = 500;
+        responseStatus = STATUS.ERROR_RESPONSE;
          return responseStatus;
       } else {
-        responseStatus = 200
+        responseStatus = STATUS.SUCCESS_RESPONSE
           return responseStatus;
       }
     });

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import LoadingSpinner from "./LoadingSpinnerComponent/LoadingSpinner";
-import { ERRORS } from "./ConstantsComponent/errorConstants";
+import LoadingSpinner from "../LoadingSpinnerComponent/LoadingSpinner";
+import { ERRORS } from "../ConstantsComponent/errorConstants";
 
 export default class Form extends Component {
   state = {
