@@ -5,7 +5,7 @@
 }
 
 .container {
-  background-color:rgb(241, 63, 63);;
+  background-color:rgb(214, 203, 203);;
   margin: 50px auto;
   width: 80%;
   box-shadow: 1px 1px 4px 1px #a09d9d;
@@ -20,7 +20,6 @@
   display: block;
   font-style: italic;
   margin-bottom: 3px;
-  color: #fefefe;
 }
 
 .container input,
@@ -52,15 +51,21 @@
   outline: none;
   transition: all 0.5s ease-in-out;
   position: relative;
-  margin-top: 5px;
-  background-color: #170d51;
+  margin-top: 7px;
+  background-color:rgb(241, 63, 63);
   border-radius: 5px;
-  color: #fefefe
+  color: black;
 }
 .btn button:hover {
   border: 1px solid #fefefe;
   background-color: rgb(57, 60, 134);
   cursor: pointer;
+}
+.btn button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
 .msg {
   text-align: center;
@@ -73,7 +78,6 @@
   font-size: 16px;
   font-weight: bold;
   color: rgb(5, 110, 5);
-  background-color: #fefefe;
   border-radius: 5px;
   display: none;
 }
@@ -94,7 +98,7 @@
   font-style: italic;
   padding: 3px;
   font-size: 16px;
-  color: rgb(12, 11, 12);
+  color: rgb(242, 24, 24);
 }
 .image {
   background-color: #fefefe;

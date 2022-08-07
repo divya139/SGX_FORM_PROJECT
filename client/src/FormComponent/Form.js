@@ -197,6 +197,8 @@ export default class Form extends Component {
       image: "",
       isImageUploaded: false,
       errorMessage: "",
+      isLoading: false,
+      formValid: false
          });
 
     setTimeout(() => {
@@ -216,6 +218,7 @@ export default class Form extends Component {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
+
 
   render() {
     return (
@@ -303,7 +306,7 @@ export default class Form extends Component {
           {/*End of single item*/}
           {this.state.isLoading ? <LoadingSpinner /> : null}
           <div className={this.state.sent ? "msg msgAppear" : "msg"}>
-            Form has been submitted
+            Form has been submitted!
           </div>
           {this.state.errorMessage && (
             <div className="error">{this.state.errorMessage}</div>
