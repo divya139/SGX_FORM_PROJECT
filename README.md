@@ -5,7 +5,7 @@ Editors like visual studio code
 
 ## How to run the app locally 
 
-Clone the repo form git and in root folder run the following commands
+Clone the repo form git and run the following commands
 
 ### git clone `repo url`
 Open the root folder in the command prompt or VS code editor
