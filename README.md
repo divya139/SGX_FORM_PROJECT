@@ -7,8 +7,8 @@ Editors like visual studio code
 
 Clone the repo form git and run the following commands
 
-### git clone `repo url`
-Open the root folder in the command prompt or VS code editor
+### git clone `<repoUrl>`
+Open the root folder in the command prompt or VS code editor and run the below commands
 ### `npm install` 
 The above command will install all necessary modules for the app.
 later run the below command to start the servers.
