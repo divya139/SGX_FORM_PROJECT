@@ -148,6 +148,8 @@ export default class Form extends Component {
   }
   //end of validate inputs
 
+  //start of form submit 
+
   formSubmit = (e) => {
     console.log("-- inside");
     e.preventDefault();
@@ -163,7 +165,7 @@ export default class Form extends Component {
     };
     console.log(data);
     axios
-      .post("/api/forma", data)
+      .post("/api/form", data)
       .then((res) => {
         console.log(res);
         this.setState(
@@ -183,6 +185,7 @@ export default class Form extends Component {
         console.log("form not submitted");
       });
   };
+  //end of form submit
 
   //for resetting initial dat
   resetForm = () => {
@@ -193,6 +196,7 @@ export default class Form extends Component {
       description: "",
       image: "",
       isImageUploaded: false,
+      errorMessage:""
     });
 
     setTimeout(() => {
@@ -288,7 +292,6 @@ export default class Form extends Component {
               type="file"
               name="image-upload"
               className="image"
-              placeholder="upload image .."
               onChange={this.handleImageUpload}
               accept="image/*"
             />
@@ -313,7 +316,7 @@ export default class Form extends Component {
               type="submit"
               disabled={this.state.isLoading || !this.state.formValid}
             >
-              Submit
+              Save
             </button>
           </div>
         </form>
