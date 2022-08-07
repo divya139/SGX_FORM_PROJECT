@@ -148,7 +148,7 @@ export default class Form extends Component {
   }
   //end of validate inputs
 
-  //start of form submit 
+  //start of form submit
 
   formSubmit = (e) => {
     console.log("-- inside");
@@ -196,8 +196,8 @@ export default class Form extends Component {
       description: "",
       image: "",
       isImageUploaded: false,
-      errorMessage:""
-    });
+      errorMessage: "",
+         });
 
     setTimeout(() => {
       this.setState({
@@ -222,9 +222,6 @@ export default class Form extends Component {
       <div className="container">
         <form onSubmit={this.formSubmit}>
           {/*single Item */}
-          {/* <div className="formErrors">
-            <FormErrors formErrors={this.state.formErrors} />
-          </div> */}
           <div className="singleItem">
             <label htmlFor="firstname">First Name</label>
             <input

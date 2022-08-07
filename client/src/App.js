@@ -1,12 +1,15 @@
-import React from 'react';
-import Form from './FormComponent/Form';
+import React from "react";
+import Form from "./FormComponent/Form";
+import Header from "./HeaderComponent/Header";
 
-import './FormComponent/Form.css';
+import "./FormComponent/Form.css";
+import "./HeaderComponent/Header.css";
 
 function App() {
   return (
     <div className="App">
-       <Form />
+      <Header/>
+      <Form />
     </div>
   );
 }

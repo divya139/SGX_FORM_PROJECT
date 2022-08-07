@@ -1,0 +1,60 @@
+.header {
+ padding: 60px;
+ height: 100px
+ }
+ .headerContainer{
+    background-color: rgb(241, 63, 63);
+    width: 100%;
+    box-shadow: 1px 1px 4px 1px #a09d9d;
+    position: relative;
+ }
+ .sgxlogo{
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    object-fit:contain;
+    width: 200px;
+ }
+ .headerName{
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #fefefe;
+
+ }
+ @media screen and(min-width:664px) {
+    .headerContainer {
+      width: 60%;
+    }
+    .sgxlogo{
+        position: absolute;
+        top: 30px;
+        left: 0px;
+        width: 50px;
+     }
+     .headerName{
+        font-size: 18px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #fefefe;
+     }
+  }
+  @media screen and(min-width:980px) {
+    .headerContainer {
+      width: 40%;
+    }
+    .sgxlogo{
+        position: absolute;
+        top: 30px;
+        left: 0px;
+        width: 50px;
+     }
+     .headerName{
+        text-align: center;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #fefefe;
+     }
+  }
