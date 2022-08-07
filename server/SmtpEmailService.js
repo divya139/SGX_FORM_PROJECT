@@ -37,7 +37,6 @@ const STATUS = require("./serverConstants");
     };
   
     smtpTransport.sendMail(mailOptions, (error, response) => {
-      console.log(response);
       if (error) {
         responseStatus = STATUS.ERROR_RESPONSE;
          return responseStatus;

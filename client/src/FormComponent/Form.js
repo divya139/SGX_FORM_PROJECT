@@ -64,11 +64,10 @@ export default class Form extends Component {
     );
   };
   //end of handle input
+
   //Start of validate inputs
   validateField = (fieldName, value) => {
     let fieldValidationErrors = this.state.formErrors;
-    console.log("-- first name value----", value);
-    console.log("-- field name---", fieldName);
     switch (fieldName) {
       case "firstname":
         this.setState(
@@ -76,11 +75,9 @@ export default class Form extends Component {
             firstNameValid: value,
           },
           () => {
-            console.log("-- first name----", this.state.firstNameValid);
             fieldValidationErrors.firstname = this.state.firstNameValid
               ? ""
               : ERRORS.ERROR_FIRSTNAME;
-            console.log("-- fieldValidationErrors----", fieldValidationErrors);
           }
         );
         break;
@@ -90,11 +87,9 @@ export default class Form extends Component {
             lastNameValid: value,
           },
           () => {
-            console.log("-- last name----", this.state.lastNameValid);
             fieldValidationErrors.lastname = this.state.lastNameValid
               ? ""
               : ERRORS.ERROR_LASTNAME;
-            console.log("-- fieldValidationErrors----", fieldValidationErrors);
           }
         );
         break;
@@ -104,11 +99,9 @@ export default class Form extends Component {
             emailValid: value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i),
           },
           () => {
-            console.log("-- email----", this.state.emailValid);
             fieldValidationErrors.email = this.state.emailValid
               ? ""
               : ERRORS.ERROR_EMAIL;
-            console.log("-- fieldValidationErrors----", fieldValidationErrors);
           }
         );
         break;
@@ -118,11 +111,9 @@ export default class Form extends Component {
             descriptionValid: value,
           },
           () => {
-            console.log("-- description----", this.state.descriptionValid);
             fieldValidationErrors.description = this.state.descriptionValid
               ? ""
               : ERRORS.ERROR_DESCRIPTION;
-            console.log("-- fieldValidationErrors----", fieldValidationErrors);
           }
         );
         break;
@@ -151,7 +142,6 @@ export default class Form extends Component {
   //start of form submit
 
   formSubmit = (e) => {
-    console.log("-- inside");
     e.preventDefault();
     this.setState({
       isLoading: true,
@@ -163,11 +153,9 @@ export default class Form extends Component {
       email: this.state.email,
       description: this.state.description,
     };
-    console.log(data);
     axios
       .post("/api/form", data)
       .then((res) => {
-        console.log(res);
         this.setState(
           {
             sent: true,
@@ -182,7 +170,6 @@ export default class Form extends Component {
             "Sorry, we are facing some technical issues, please try after sometime.",
           isLoading: false,
         });
-        console.log("form not submitted");
       });
   };
   //end of form submit
@@ -198,8 +185,8 @@ export default class Form extends Component {
       isImageUploaded: false,
       errorMessage: "",
       isLoading: false,
-      formValid: false
-         });
+      formValid: false,
+    });
 
     setTimeout(() => {
       this.setState({
@@ -207,10 +194,11 @@ export default class Form extends Component {
       });
     }, 3000);
   };
+  //end of resetting form
 
+  // handle image upload
   handleImageUpload = (e) => {
     const reader = new FileReader();
-    console.log("-- reader--", reader);
     reader.onload = () => {
       if (reader.readyState === 2) {
         this.setState({ image: reader.result, isImageUploaded: true });
@@ -218,13 +206,13 @@ export default class Form extends Component {
     };
     reader.readAsDataURL(e.target.files[0]);
   };
-
+  //end of handle image upload
 
   render() {
     return (
       <div className="container">
         <form onSubmit={this.formSubmit}>
-          {/*single Item */}
+          {/*single Item firstname */}
           <div className="singleItem">
             <label htmlFor="firstname">First Name</label>
             <input
@@ -238,8 +226,8 @@ export default class Form extends Component {
             />
             <div className="error">{this.state.formErrors["firstname"]}</div>
           </div>
-          {/*End of single item*/}
-          {/*single Item */}
+          {/*End of single item firstname*/}
+          {/*single Item lastname*/}
           <div className="singleItem">
             <label htmlFor="lastname">Last Name</label>
             <input
@@ -253,8 +241,8 @@ export default class Form extends Component {
             />
             <div className="error">{this.state.formErrors["lastname"]}</div>
           </div>
-          {/*End of single item*/}
-          {/*single Item */}
+          {/*End of single item lastname*/}
+          {/*single Item email*/}
           <div className="singleItem">
             <label htmlFor="email">Email</label>
             <input
@@ -268,8 +256,8 @@ export default class Form extends Component {
             />
             <div className="error">{this.state.formErrors["email"]}</div>
           </div>
-          {/*End of single item*/}
-          {/*single Item */}
+          {/*End of single item email*/}
+          {/*single Item  description*/}
           <div className="textArea singleItem">
             <label htmlFor="description">Description</label>
             <textarea
@@ -284,8 +272,8 @@ export default class Form extends Component {
             ></textarea>
             <div className="error">{this.state.formErrors["description"]}</div>
           </div>
-          {/*End of single item*/}
-          {/*single Item */}
+          {/*End of single item description*/}
+          {/*single Item image upload*/}
           <div className="singleItem">
             <label htmlFor="imageUpload">Upload Image</label>
             <input
@@ -296,14 +284,14 @@ export default class Form extends Component {
               accept="image/*"
             />
           </div>
-          {/*End of single item*/}
-          {/*single Item */}
+          {/*End of single item image upload*/}
+          {/*single Item image view*/}
           {this.state.isImageUploaded && (
             <div className="singleItem imageHolder">
               <img src={this.state.image} alt="" id="img" className="img" />
             </div>
           )}
-          {/*End of single item*/}
+          {/*End of single item image view*/}
           {this.state.isLoading ? <LoadingSpinner /> : null}
           <div className={this.state.sent ? "msg msgAppear" : "msg"}>
             Form has been submitted!
