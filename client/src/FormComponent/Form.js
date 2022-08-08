@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import LoadingSpinner from "../LoadingSpinnerComponent/LoadingSpinner";
 import { ERRORS } from "../ConstantsComponent/errorConstants";
+import { VALIDATION } from "../ConstantsComponent/validationConstants";
 
 export default class Form extends Component {
   state = {
@@ -72,7 +73,7 @@ export default class Form extends Component {
       case "firstname":
         this.setState(
           {
-            firstNameValid: value,
+            firstNameValid: value.match(VALIDATION.VALIDATE_NAME),
           },
           () => {
             fieldValidationErrors.firstname = this.state.firstNameValid
@@ -84,7 +85,7 @@ export default class Form extends Component {
       case "lastname":
         this.setState(
           {
-            lastNameValid: value,
+            lastNameValid: value.match(VALIDATION.VALIDATE_NAME),
           },
           () => {
             fieldValidationErrors.lastname = this.state.lastNameValid
@@ -96,7 +97,7 @@ export default class Form extends Component {
       case "email":
         this.setState(
           {
-            emailValid: value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i),
+            emailValid: value.match(VALIDATION.VALIDATE_EMAIL),
           },
           () => {
             fieldValidationErrors.email = this.state.emailValid
